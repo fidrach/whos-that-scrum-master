@@ -1,12 +1,56 @@
 // An empty Prisma Schema with no models, perfect as a starting point for your own schema.
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
   referentialIntegrity = "prisma"
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["dataproxy", "referentialIntegrity"]
+}
+
+model Team {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  member    Member[]
+}
+
+model Member {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  team      Team?    @relation(fields: [teamId], references: [id])
+  teamId    Int?
+  person    Person?  @relation(fields: [personId], references: [id])
+  personId  Int?
+}
+
+model Person {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  name      String
+  type      Type
+  member    Member[]
+}
+
+enum Type {
+  NORMAL
+  FIRE
+  WATER
+  GRASS
+  ELECTRIC
+  ICE
+  FIGHTING
+  POISON
+  GROUND
+  FLYING
+  PSYCHIC
+  BUG
+  ROCK
+  GHOST
+  DARK
+  DRAGON
+  STEEL
+  FAIRY
 }
