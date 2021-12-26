@@ -15,16 +15,7 @@ generator client {
 model Team {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-  member    Member[]
-}
-
-model Member {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  team      Team?    @relation(fields: [teamId], references: [id])
-  teamId    Int?
-  person    Person?  @relation(fields: [personId], references: [id])
-  personId  Int?
+  person    Person[]
 }
 
 model Person {
@@ -32,7 +23,7 @@ model Person {
   createdAt DateTime @default(now())
   name      String
   type      Type
-  member    Member[]
+  Team      Team[]
 }
 
 enum Type {
