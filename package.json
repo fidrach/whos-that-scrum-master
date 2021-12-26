@@ -8,7 +8,7 @@
     "start:dev": "cross-env NODE_OPTIONS=--max_old_space_size=8192 next dev",
     "connect:shadow": "pscale connect whos-that-scrum-master shadow --port 3310",
     "prisma:generate": "cross-env PRISMA_CLIENT_ENGINE_TYPE='dataproxy' prisma generate",
-    "prisma:migrate": "DATABASE_URL=\"$MIGRATE_DATABASE_URL\" prisma migrate deploy",
+    "prisma:migrate": "DATABASE_URL=\"$DATABASE_MIGRATE_URL\" prisma migrate deploy",
     "vercel-build": "npm run prisma:generate && npm run prisma:migrate && next build"
   },
   "dependencies": {
