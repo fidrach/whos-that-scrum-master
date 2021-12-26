@@ -3,11 +3,12 @@
   "description": "Serverless full stack application created to solve scrum master rotation, in other words, a future unicorn app going to the moon!",
   "private": true,
   "scripts": {
-    "build": "cross-env PRISMA_CLIENT_ENGINE_TYPE='dataproxy' prisma generate && next build",
+    "build": "next build",
     "start": "next start",
     "start:dev": "cross-env NODE_OPTIONS=--max_old_space_size=8192 next dev",
     "connect:main": "pscale connect whos-that-scrum-master main --port 3309",
-    "connect:shadow": "pscale connect whos-that-scrum-master shadow --port 3310"
+    "connect:shadow": "pscale connect whos-that-scrum-master shadow --port 3310",
+    "prisma:generate": "cross-env PRISMA_CLIENT_ENGINE_TYPE='dataproxy' prisma generate"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
