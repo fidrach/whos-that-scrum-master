@@ -3,15 +3,13 @@
   "description": "Serverless full stack application created to solve scrum master rotation, in other words, a future unicorn app going to the moon!",
   "private": true,
   "scripts": {
-    "build": "next build && cross-env PRISMA_CLIENT_ENGINE_TYPE='dataproxy' prisma generate",
+    "build": "next build",
     "start": "next start",
     "start:dev": "cross-env NODE_OPTIONS=--max_old_space_size=8192 next dev",
-    "connect:main": "pscale connect whos-that-scrum-master main --port 3309",
     "connect:shadow": "pscale connect whos-that-scrum-master shadow --port 3310",
-    "pscale:branch": "pscale branch create whos-that-scrum-master",
     "prisma:generate": "cross-env PRISMA_CLIENT_ENGINE_TYPE='dataproxy' prisma generate",
-    "prisma:migrate": "npx prisma migrate dev",
-    "prisma:deploy": "npx prisma migrate deploy"
+    "prisma:migrate": "DATABASE_URL=\"$MIGRATE_DATABASE_URL\" prisma migrate deploy",
+    "vercel-build": "npm run prisma:generate && npm run prisma:migrate && next build"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
