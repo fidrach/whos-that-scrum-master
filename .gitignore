@@ -1,4 +1,19 @@
+# dependencies
 node_modules/
 dist/
+
+# environment
 *.env*
 .secretKey
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
