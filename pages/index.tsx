@@ -1,11 +1,19 @@
 import { Box, Button, Typography } from '@mui/material';
 import { NextPage } from 'next';
 
+import { CreateTeam } from '../components/create-team';
+
 const HomePage: NextPage = () => {
     return (
-        <Box>
+        <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            height="100vh"
+            flexDirection="column"
+        >
             <Typography>Who's that scrum master!?</Typography>
-            <Button color="primary">Click mee</Button>
+            <CreateTeam />
         </Box>
     );
 };
