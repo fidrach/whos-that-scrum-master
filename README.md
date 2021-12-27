@@ -10,3 +10,32 @@ Have you ever been confused on who the next scrum master is?? Don't know where t
 -   Next
 -   React
 -   Redux
+
+## Deploy schema
+
+Create branch and test migration
+
+```
+yarn pscale:branch <branch-name>
+```
+
+Connect to brancha and shadow database
+
+```
+pscale connect whos-that-scrum-master <branch-name> --port 3309
+yarn prisma:migrate-dev
+```
+
+If everything looks good, deploy to production branch
+
+```
+yarn prisma:deploy-dev
+```
+
+Update prisma client
+
+```
+yarn prisma:generate-dev
+```
+
+Go to planetscale and create deploy request

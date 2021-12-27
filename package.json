@@ -6,12 +6,16 @@
     "build": "next build",
     "start": "next start",
     "start:dev": "cross-env NODE_OPTIONS=--max_old_space_size=8192 next dev",
-    "connect:main": "cross-env DATABASE_URL=\"mysql://root@127.0.0.1:3309/whos-that-scrum-master\" pscale connect whos-that-scrum-master main --port 3309",
+    "connect:main": "dotenv cross-env DATABASE_URL=\"$DATABASE_URL_DEV\" pscale connect whos-that-scrum-master main --port 3309",
     "connect:shadow": "pscale connect whos-that-scrum-master shadow --port 3310",
-    "prisma:migrate-dev": "cross-env DATABASE_URL=\"mysql://root@127.0.0.1:3309/whos-that-scrum-master\" prisma migrate dev",
+    "pscale:branch": "pscale branch create whos-that-scrum-master",
+    "prisma:migrate-dev": "dotenv cross-env DATABASE_URL=\"$DATABASE_URL_DEV\" prisma migrate dev",
     "prisma:generate": "cross-env PRISMA_CLIENT_ENGINE_TYPE='dataproxy' prisma generate",
-    "prisma:migrate": "cross-env DATABASE_URL=\"$DATABASE_MIGRATE_URL\" prisma migrate deploy",
-    "vercel-build": "npm run prisma:generate && npm run prisma:migrate && next build"
+    "prisma:generate-dev": "dotenv cross-env DATABASE_URL=\"$DATABASE_URL_DEV\" prisma generate",
+    "prisma:deploy": "cross-env DATABASE_URL=\"$DATABASE_MIGRATE_URL\" prisma migrate deploy",
+    "prisma:deploy-dev": "dotenv cross-env DATABASE_URL=\"$DATABASE_URL_DEV\" prisma migrate deploy",
+    "prisma:reset-dev": "dotenv cross-env DATABASE_URL=\"$DATABASE_URL_DEV\" prisma migrate reset",
+    "vercel-build": "npm run prisma:generate && npm run prisma:deploy && next build"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
@@ -37,6 +41,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
     "cross-env": "^7.0.3",
+    "dotenv-cli": "^4.1.1",
     "prettier": "^2.5.1",
     "prisma": "3.4.2",
     "ts-node": "10.4.0",
