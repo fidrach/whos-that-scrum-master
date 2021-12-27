@@ -15,7 +15,7 @@
     "prisma:deploy": "cross-env DATABASE_URL=\"$DATABASE_MIGRATE_URL\" prisma migrate deploy",
     "prisma:deploy-dev": "dotenv cross-env DATABASE_URL=\"$DATABASE_URL_DEV\" prisma migrate deploy",
     "prisma:reset-dev": "dotenv cross-env DATABASE_URL=\"$DATABASE_URL_DEV\" prisma migrate reset",
-    "vercel-build": "npm run prisma:generate && npm run prisma:deploy && next build"
+    "vercel-build": "npm run prisma:generate && next build"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
