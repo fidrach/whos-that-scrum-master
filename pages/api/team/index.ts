@@ -1,7 +1,7 @@
 import { Member, Person, Team } from '@prisma/client';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import prisma from '../../lib/prisma';
+import prisma from '../../../lib/prisma';
 
 export type TeamResponse = TeamData[];
 export type TeamData = Team & { person: Member & { person: Person } };

@@ -1,6 +1,5 @@
 import { CacheProvider } from '@emotion/react';
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
+import { Container, CssBaseline, ThemeProvider } from '@mui/material';
 import { AppProps } from 'next/dist/shared/lib/router/router';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
@@ -35,7 +34,9 @@ export default function MyApp(props: AppProps) {
                 <Provider store={store}>
                     {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
                     <CssBaseline />
-                    <Component {...pageProps} />
+                    <Container>
+                        <Component {...pageProps} />
+                    </Container>
                 </Provider>
             </ThemeProvider>
         </CacheProvider>
