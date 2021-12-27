@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "start:dev": "cross-env NODE_OPTIONS=--max_old_space_size=8192 next dev",
-    "connect:main": "dotenv cross-env DATABASE_URL=\"$DATABASE_URL_DEV\" pscale connect whos-that-scrum-master main --port 3309",
+    "connect:main": "dotenv cross-env DATABASE_URL=\"$DATABASE_URL_DEV\" pscale connect whos-that-scrum-master main --port 3306",
     "connect:shadow": "pscale connect whos-that-scrum-master shadow --port 3310",
     "pscale:branch": "pscale branch create whos-that-scrum-master",
     "prisma:migrate-dev": "dotenv cross-env DATABASE_URL=\"$DATABASE_URL_DEV\" prisma migrate dev",

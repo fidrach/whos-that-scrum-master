@@ -22,7 +22,7 @@ yarn pscale:branch <branch-name>
 Connect to brancha and shadow database
 
 ```
-pscale connect whos-that-scrum-master <branch-name> --port 3309
+pscale connect whos-that-scrum-master <branch-name> --port 3306
 yarn prisma:migrate-dev
 ```
 
