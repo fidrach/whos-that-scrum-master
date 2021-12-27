@@ -5,7 +5,9 @@ import { AppProps } from 'next/dist/shared/lib/router/router';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import * as React from 'react';
+import { Provider } from 'react-redux';
 
+import { store } from '../redux';
 import createEmotionCache from '../utility/createEmotionCache';
 import theme from '../utility/theme';
 
@@ -30,9 +32,11 @@ export default function MyApp(props: AppProps) {
                 />
             </Head>
             <ThemeProvider theme={theme}>
-                {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-                <CssBaseline />
-                <Component {...pageProps} />
+                <Provider store={store}>
+                    {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+                    <CssBaseline />
+                    <Component {...pageProps} />
+                </Provider>
             </ThemeProvider>
         </CacheProvider>
     );
