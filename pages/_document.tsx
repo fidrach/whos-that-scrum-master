@@ -24,6 +24,13 @@ export default class MyDocument extends Document {
                 </Head>
                 <body>
                     <Main />
+                    <style global jsx>{`
+                        html,
+                        body,
+                        div#__next {
+                            height: 100%;
+                        }
+                    `}</style>
                     <NextScript />
                 </body>
             </Html>

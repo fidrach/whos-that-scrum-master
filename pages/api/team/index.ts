@@ -4,7 +4,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '../../../lib/prisma';
 
 export type TeamResponse = TeamData[];
-export type TeamData = Team & { person: Member & { person: Person } };
+export type TeamData = Team & { person: (Member & { person: Person })[] };
 export type TeamRequest = Pick<Team, 'name'>;
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -18,6 +18,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                         person: {
                             include: {
                                 person: true,
+                            },
+                            orderBy: {
+                                order: 'asc',
                             },
                         },
                     },

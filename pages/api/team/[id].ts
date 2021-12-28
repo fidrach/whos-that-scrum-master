@@ -16,6 +16,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                     where: {
                         id: Number(id),
                     },
+                    include: {
+                        person: {
+                            include: {
+                                person: true,
+                            },
+                            orderBy: {
+                                order: 'asc',
+                            },
+                        },
+                    },
                 });
                 res.status(200).json(team);
             } catch (e) {

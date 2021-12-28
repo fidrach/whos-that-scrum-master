@@ -3,5 +3,6 @@ export enum API_PATHS {
 }
 
 export enum PATHS {
+    Home = '/',
     Team = '/team/',
 }

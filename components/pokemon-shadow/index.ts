@@ -1,0 +1,1 @@
+export { PokemonShadow } from './PokemonShadow';

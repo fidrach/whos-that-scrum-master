@@ -13,10 +13,11 @@ generator client {
 }
 
 model Team {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  name      String
-  person    Member[]
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  name          String
+  person        Member[]
+  scrumMasterId Int?
 }
 
 model Member {

@@ -35,7 +35,7 @@ yarn prisma:deploy-dev
 Update prisma client
 
 ```
-yarn prisma:generate-dev
+yarn prisma:generate
 ```
 
 Go to planetscale and create deploy request

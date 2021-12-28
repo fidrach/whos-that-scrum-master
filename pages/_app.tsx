@@ -1,11 +1,12 @@
 import { CacheProvider } from '@emotion/react';
-import { Container, CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import { AppProps } from 'next/dist/shared/lib/router/router';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { Provider } from 'react-redux';
 
+import { Layout } from '../components/layout';
 import { store } from '../redux';
 import createEmotionCache from '../utility/createEmotionCache';
 import theme from '../utility/theme';
@@ -34,9 +35,9 @@ export default function MyApp(props: AppProps) {
                 <Provider store={store}>
                     {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
                     <CssBaseline />
-                    <Container>
+                    <Layout>
                         <Component {...pageProps} />
-                    </Container>
+                    </Layout>
                 </Provider>
             </ThemeProvider>
         </CacheProvider>

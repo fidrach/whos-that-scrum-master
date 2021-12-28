@@ -22,16 +22,24 @@ const HomePage: NextPage = () => {
             display="flex"
             alignItems="center"
             justifyContent="center"
-            height="100vh"
-            flexDirection="column"
+            height="100%"
         >
-            <Typography>Who's that scrum master!?</Typography>
+            <Box
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                flexDirection="column"
+            >
+                <Typography>Who's that scrum master!?</Typography>
 
-            <CreateTeam />
+                <Box mb={2} />
 
-            {teams.map((team) => (
-                <Team key={team.id} team={team} />
-            ))}
+                {teams.map((team) => (
+                    <Team key={team.id} team={team} />
+                ))}
+
+                <CreateTeam />
+            </Box>
         </Box>
     );
 };
