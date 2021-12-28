@@ -17,12 +17,26 @@ export const PokemonShadow = () => {
     return (
         <Box display="flex" flexDirection="column">
             <Button onClick={randomize}>Randomize</Button>
-            <Image src={pokemon} />
+            <ShadowContainer>
+                <Background src="/shadow_background.png" />
+                <Shadow src={pokemon} />
+            </ShadowContainer>
         </Box>
     );
 };
 
-const Image = styled('img')({
-    height: 500,
-    width: 500,
+const ShadowContainer = styled(Box)({
+    position: 'relative',
+    height: 300,
+    width: 300,
+});
+
+const Shadow = styled('img')({
+    height: 300,
+    position: 'absolute',
+    top: 0,
+});
+
+const Background = styled('img')({
+    height: '100%',
 });
