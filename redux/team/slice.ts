@@ -52,13 +52,6 @@ export const updateTeamScrumMaster = createAsyncThunk<
                 (direction === 'next' ? 1 : person.length - 1)) %
             person.length;
 
-        console.log(
-            'old vs new',
-            currentScrumMasterIndex,
-            newScrumMasterIndex,
-            person
-        );
-
         return (
             await axios.patch(`${API_PATHS.Team}${id}`, {
                 name,
@@ -101,7 +94,6 @@ export const { reducer: teamReducer, actions: teamActions } = createSlice({
         builder.addCase(
             updateTeamScrumMaster.fulfilled,
             (state, { payload }: PayloadAction<TeamData | void>) => {
-                console.log('updated', payload);
                 if (payload) {
                     state.teamsById[payload.id] = {
                         ...state.teamsById[payload.id],
