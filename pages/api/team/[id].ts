@@ -41,6 +41,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                     },
                     data: {
                         name: body.name,
+                        scrumMasterId: body.scrumMasterId,
                     },
                 });
                 res.status(200).json(team);

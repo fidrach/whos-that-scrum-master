@@ -5,7 +5,7 @@ import prisma from '../../../lib/prisma';
 
 export type TeamResponse = TeamData[];
 export type TeamData = Team & { person: (Member & { person: Person })[] };
-export type TeamRequest = Pick<Team, 'name'>;
+export type TeamRequest = Pick<Team, 'name' | 'scrumMasterId'>;
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     const { method, body } = req;

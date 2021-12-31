@@ -1,5 +1,4 @@
 import { Box, Button, Card as MUCard, Typography, styled } from '@mui/material';
-import { Person, Team as TeamType } from '@prisma/client';
 import { useRouter } from 'next/router';
 
 import { TeamData } from '../../pages/api/team';
